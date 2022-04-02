@@ -31,7 +31,7 @@ function App() {
     setTodos(prevTodos => {
       return [...prevTodos, {id: uuidv4(), name:name, complete:false}]
     })
-    console.log(uuidv4(),todoNameRef.current.value)
+    console.log(todos)
     todoNameRef.current.value = null
   }
 
@@ -47,7 +47,7 @@ function App() {
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add to do</button>
       <button onClick={handleClearTodo}>Clear to do</button>
-      <div>0 left to do</div>
+      <div>{todos.filter(todo => !todo.complete).length} left to do</div>
     </>
   )
 }
